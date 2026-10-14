@@ -1,0 +1,349 @@
+:root {
+    --button-color: #E06C9F;
+    --accent-color: #FFFFFF;
+    --primary-color: #D1BCE3;
+    --secondary-color: #EDBFB7;
+    --text-color: #1A1A1A;
+    --sidebar-color: #F6DFDB;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+   
+}
+.sidebar{
+    background-color: var(--sidebar-color);
+    color: var(--text-color);
+    padding: 2%;
+    height: 100vh;
+    width: 350px;
+    position: fixed;
+    
+}
+/*Navigation links*/
+.sidebar a{
+    display: block;
+    color: var(--text-color);
+    text-decoration: none;
+    padding: .5rem 2rem;
+    transition: background-color 0.3s ease;
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    font-size: 18px;
+    background-color: var(--sidebar-color);
+    
+}
+.sidebar a:hover{
+    background-color: var(--button-color);
+    color: var(--accent-color);
+    border-radius: 60px;
+}
+/* Active link */
+.sidebar a.active {
+  background-color: #2563eb;
+  color: white;
+}
+
+.topbar{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between; 
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    padding: 0rem 4rem;
+    padding-top: 4%;
+}
+
+/* Main page content */
+.content {
+  margin-left: 240px;
+  padding: 40px;
+  font-family: Arial, sans-serif;
+}
+
+.content h1 {
+  margin-bottom: 15px;
+  padding:10px, 15px;
+}
+
+.logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;   
+    padding: 10px 15px;
+    text-align: center;
+}
+
+.logo-first{
+    font-weight: 900;
+}
+
+.logo-second{
+    font-weight: 400;
+    font-style: italic;
+}
+
+.profile-pic{
+    width: 60x;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    object-fit: cover;
+    flex: 0 0 64px
+
+    
+}
+
+.profile-pic img{
+    width: 150%;
+    height: 150%;
+    border-radius: 50%;
+    display: block;
+    flex-direction: row;
+  
+}
+
+.username {
+    flex: auto;
+    white-space: nowrap;
+    font-style: italic;
+    padding-left: 3%;
+}
+
+.task-list{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background-color: var(--primary-color);
+    h1{
+        font-family: 'Playfair Display', serif;
+        font-size: 28px;
+        margin-bottom: 10px;
+    }
+    h4{
+        font-family: "Playfair Display";
+        font-size: 20px;
+        margin-top: 30px;
+    }
+    p{
+        font-family: "Roboto Condensed";  
+        font-size: 16px;
+        margin-top: 15px;
+    }
+}
+
+.task-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.site-container{
+    margin-left: 350px;
+    min-height: 100vh;
+    flex-direction: row;
+    background-color: var(--primary-color);
+    padding: 0 2rem;
+}
+
+.page-content{
+    
+    min-width: 0;
+}
+
+.search-bar{
+    display: flex;
+    align-items: center;
+    margin-left:auto;
+    margin-bottom: 20px;
+    border: 1px solid var(--text-color);
+    border-radius: 999px;
+    overflow: hidden;
+    flex: 1;
+    background-color: var(--accent-color);
+
+}
+
+#searchInput{
+    flex: 1;
+    min-width: 0;
+    height: 100%;
+    padding: 0 1rem;
+    border: 0;
+    border-radius: 0;
+    outline: 0;
+    background: transparent;
+}
+
+#searchInput {
+    color: var(--text-color);
+    font-size: 1rem;
+    font-family: "roboto condensed";
+}
+
+#searchInput {
+    color: var(--text-color);
+    font-size: 1rem;
+}
+
+.search-bar svg {
+    padding-left: 1%;
+    margin-left: 1rem;
+    flex: 0 0 auto;
+}
+
+.search-bar button {
+    padding: 0.65rem 1rem;
+    border: 0;
+    background-color: var(--button-color);
+    color: var(--accent-color);
+    cursor: pointer;
+    font-family: "Roboto Condensed";
+}
+
+.status-bar {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.4rem;
+    background-color: rgb(255, 255, 255);
+    border-radius: 999px;
+    width: fit-content;
+}
+
+
+.status-label {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 0.75rem;
+    padding: 0.6rem 1rem;
+    background-color: var(--button-color);
+    border-radius: 999px;
+}
+
+.status-bar > .notification-icon {
+    display: grid;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    flex: 0 0 40px;
+    background-color: #ddd;
+    border-radius: 50%;
+}
+
+.checklist {
+    background-color: var(--secondary-color);
+    padding: 2rem;
+    margin: 0 0 2rem;
+    border-radius: 12px;
+    margin-top: 10%;
+}
+
+.checklist > header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.progress-section {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.progress-bar {
+    width: clamp(140px, 25vw, 340px);
+    height: 24px;
+    overflow: hidden;
+    border: 1px solid var(--text-color);
+    border-radius: 999px;
+    background-color: var(--accent-color);
+}
+
+.progress-fill {
+    height: 100%;
+    width: 0;
+    border-radius: inherit;
+    background-color: var(--primary-color);
+    transition: width 0.2s ease;
+}
+
+.checklist-items {
+    display: grid;
+    gap: 1rem;
+    margin-top: 2rem;
+    list-style: none;
+}
+
+.checklist input[type="checkbox"] {
+    accent-color: var(--button-color);
+    
+}
+
+.checklist input[type="checkbox"] {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 1px solid var(--text-color);
+    border-radius: 50%;
+    display: inline-grid;
+    place-content: center;
+    vertical-align: middle;
+}
+
+.checklist input[type="checkbox"]::before {
+    content: "✓";
+    color: white;
+    font-size: 14px;
+    transform: scale(0);
+}
+
+.checklist input[type="checkbox"]:checked {
+    background-color: var(--button-color);
+}
+
+.checklist input[type="checkbox"]:checked::before {
+    transform: scale(1);
+}
+
+.checklist input[type="checkbox"]:focus-visible {
+    outline: 2px solid var(--text-color);
+    outline-offset: 2px;
+}
+
+.task-list{
+    padding-top: 5%;
+    
+}
+.task-list h1 {
+    font-size: 40px;
+}
+
+.notifications svg {
+    width: 30px;
+    height: 30px;
+    margin-right: 5%;
+}
+
+.notifications {
+    position: relative;
+    background-color: rgb(221, 223, 223);
+    border-radius: 50%;
+}
+
+.notifications::after {
+    content: "";
+    position: absolute;
+    top: 2px;
+    right: 4px;
+    width: 9px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background-color: var(--button-color);
+   
+}
