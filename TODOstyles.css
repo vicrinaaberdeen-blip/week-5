@@ -13,7 +13,13 @@
     padding: 0;
    
 }
+body {
+    background-color: var(--primary-color);
+}
+
 .sidebar{
+    display: flex;
+    flex-direction: column;
     background-color: var(--sidebar-color);
     color: var(--text-color);
     padding: 2%;
@@ -22,17 +28,23 @@
     position: fixed;
     
 }
+
+.sidebar-bottom {
+    margin-top: auto;
+}
+
 /*Navigation links*/
 .sidebar a{
     display: block;
     color: var(--text-color);
     text-decoration: none;
-    padding: .5rem 2rem;
+    padding: .8rem 2rem;
     transition: background-color 0.3s ease;
     font-family: 'Playfair Display', serif;
     font-weight: 600;
-    font-size: 18px;
+    font-size: 20px;
     background-color: var(--sidebar-color);
+    margin-top: 5%;
     
 }
 .sidebar a:hover{
@@ -55,6 +67,7 @@
     width: 100%;
     padding: 0rem 4rem;
     padding-top: 4%;
+    margin-right: 1%;
 }
 
 /* Main page content */
@@ -115,6 +128,7 @@
     list-style: none;
     padding: 0;
     margin: 0;
+    margin-right: 4%;
     background-color: var(--primary-color);
     h1{
         font-family: 'Playfair Display', serif;
@@ -146,6 +160,7 @@
     flex-direction: row;
     background-color: var(--primary-color);
     padding: 0 2rem;
+
 }
 
 .page-content{
@@ -239,7 +254,8 @@
     padding: 2rem;
     margin: 0 0 2rem;
     border-radius: 12px;
-    margin-top: 10%;
+    margin-top: 5%;
+    margin-bottom: 20%;
 }
 
 .checklist > header {
@@ -248,6 +264,7 @@
     align-items: center;
     justify-content: space-between;
     gap: 2rem;
+    margin-bottom: 2%;
 }
 
 .progress-section {
@@ -346,4 +363,50 @@
     border-radius: 50%;
     background-color: var(--button-color);
    
+}
+
+.checklist-button {
+    display: flex;
+    align-items: center;
+    margin-top: 5%;
+    background-color: var(--button-color);
+    color: var(--text-color);
+    padding: 1%;
+    height: 24px;
+    overflow: hidden;
+    border: 1px solid var(--text-color);
+    border-radius: 999px;
+    font-family: "roboto condensed";
+    font-size: 16px;
+   
+
+}
+
+#checklistForm {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+
+#checklistInput{
+    min-width: 0;
+    margin-top: 0;
+    border-radius: 999px;
+    padding: .5%;
+    
+}
+
+#addItemButton {
+    width: 32px;
+    height: 32px;
+    flex: 0 0 32px;
+    padding: 0;
+    background-color: var(--button-color);
+    border-radius: 50%;
+}
+
+#addItemButton svg {
+    justify-content: center;
+    color: var(--accent-color);
 }

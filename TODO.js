@@ -55,4 +55,23 @@ renderChecklist();
 
 
 
+const checklistForm = document.querySelector("#checklistForm")
+const checklistInput = document.querySelector("#checklistInput")
+
+checklistForm.addEventListener("submit", (event)=> {
+    event.preventDefault()
+    console.log("Item submitted:${checklistInput.value}")
+
+    const newItem = {
+        text: checklistInput.value,
+        completed: false
+    }
+    todos.push(newItem)
+    renderChecklist();
+    checklistInput.value=""
+});
+
+
+
+
 
