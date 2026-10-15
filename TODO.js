@@ -17,7 +17,9 @@ const progressPercentage = document.querySelector("#progressPercentage");
 
 function updateProgress() {
     const completedCount = todos.filter(todo => todo.completed).length;
-    const percentage = Math.round((completedCount / todos.length) * 100);
+    const percentage = todos.length === 0
+        ? 0
+        : Math.round((completedCount / todos.length) * 100);
 
     progressFill.style.width = `${percentage}%`;
     progressPercentage.textContent = `${percentage}%`;
@@ -71,7 +73,35 @@ checklistForm.addEventListener("submit", (event)=> {
     checklistInput.value=""
 });
 
+// const removedItem = "Clean the house"
 
+// function getItemsLeft() {
+//     return todos.filter((item) => item.text !== removedItem && !item.completed)
+// }
 
+// function renderTodos() {
+//     const todoList = document.querySelector("#toDoList")
+//     todoList.replaceChildren()
 
+//     getItemsLeft().forEach((todo) => {
+//         const todoItem = document.createElement("li")
+//         todoItem.classList.add("item")
+//         todoItem.textContent = todo.text
+//         if (todo.completed) {
+//             todoItem.classList.add("completed")
+//         }
+//         todoList.append(todoItem)
+//     })
+// }
 
+const removeCheckedButton = document.querySelector(".checklist-button");
+
+removeCheckedButton.addEventListener("click", () => {
+    for (let index = todos.length - 1; index >= 0; index--) {
+        if (todos[index].completed) {
+            todos.splice(index, 1);
+        }
+    }
+
+    renderChecklist();
+});
