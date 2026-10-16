@@ -11,10 +11,14 @@ const todos = [
         { text: "Outline marketing and sales strategies", completed: true },
     ];
 
+
+
 const checklist = document.querySelector(".checklist-items");
+const taskFilter = document.querySelector("#taskFilter");
 const progressFill = document.querySelector("#progressFill");
 const progressPercentage = document.querySelector("#progressPercentage");
 
+// Calculates the completed-task percentage and updates the progress bar and label.
 function updateProgress() {
     const completedCount = todos.filter(todo => todo.completed).length;
     const percentage = todos.length === 0
@@ -25,10 +29,15 @@ function updateProgress() {
     progressPercentage.textContent = `${percentage}%`;
 }
 
+// Rebuilds the visible checklist using the current task filter.
 function renderChecklist() {
     checklist.replaceChildren();
 
-    todos.forEach((todo, index) => {
+    const tasksToRender = taskFilter.value === "remaining"
+        ? todos.filter((todo) => !todo.completed)
+        : todos;
+
+    tasksToRender.forEach((todo) => {
         const item = document.createElement("li");
         const label = document.createElement("label");
         const checkbox = document.createElement("input");
@@ -36,13 +45,12 @@ function renderChecklist() {
 
         checkbox.type = "checkbox";
         checkbox.checked = todo.completed;
-        
 
         text.textContent = todo.text;
-        
-         checkbox.addEventListener("change", () => {
-            todos[index].completed = checkbox.checked;
-            updateProgress();
+
+        checkbox.addEventListener("change", () => {
+            todo.completed = checkbox.checked;
+            renderChecklist();
         });
 
         label.append(checkbox, text);
@@ -53,13 +61,13 @@ function renderChecklist() {
     updateProgress();
 }
 
+taskFilter.addEventListener("change", renderChecklist);
 renderChecklist();
-
-
 
 const checklistForm = document.querySelector("#checklistForm")
 const checklistInput = document.querySelector("#checklistInput")
 
+// Adds the submitted input as a new unchecked task, then redraws the checklist.
 checklistForm.addEventListener("submit", (event)=> {
     event.preventDefault()
     console.log("Item submitted:${checklistInput.value}")
@@ -96,6 +104,7 @@ checklistForm.addEventListener("submit", (event)=> {
 
 const removeCheckedButton = document.querySelector(".checklist-button");
 
+// Removes every completed task, then redraws the checklist and progress.
 removeCheckedButton.addEventListener("click", () => {
     for (let index = todos.length - 1; index >= 0; index--) {
         if (todos[index].completed) {
@@ -105,3 +114,6 @@ removeCheckedButton.addEventListener("click", () => {
 
     renderChecklist();
 });
+
+
+// const firstGradeIsPassing = students.filter((s)=> s.grades[0]>=85)
