@@ -5,6 +5,12 @@
     --secondary-color: #EDBFB7;
     --text-color: #1A1A1A;
     --sidebar-color: #F6DFDB;
+    --h1-size: 2.5rem;
+    --h2-size: 2rem;
+    --h3-size: 1.5rem;
+    --h4-size:1.25rem;
+    --body-size: 1rem;
+    
 }
 
 * {
@@ -84,7 +90,7 @@ body {
 
 .logo {
     font-family: 'Playfair Display', serif;
-    font-size: 24px;   
+    font-size: var(--h3-size);   
     padding: 10px 15px;
     text-align: center;
 }
@@ -132,17 +138,17 @@ body {
     background-color: var(--primary-color);
     h1{
         font-family: 'Playfair Display', serif;
-        font-size: 28px;
+        font-size: var(--h1-size);
         margin-bottom: 10px;
     }
     h4{
         font-family: "Playfair Display";
-        font-size: 20px;
+        font-size: var(--h4-size);
         margin-top: 30px;
     }
     p{
         font-family: "Roboto Condensed";  
-        font-size: 16px;
+        font-size: var(--body-size);
         margin-top: 15px;
     }
 }
@@ -194,13 +200,13 @@ body {
 
 #searchInput {
     color: var(--text-color);
-    font-size: 1rem;
+    font-size: var(--body-size);
     font-family: "roboto condensed";
 }
 
 #searchInput {
     color: var(--text-color);
-    font-size: 1rem;
+    font-size: var(--body-size);
 }
 
 .search-bar svg {
@@ -318,7 +324,7 @@ body {
 .checklist input[type="checkbox"]::before {
     content: "✓";
     color: white;
-    font-size: 14px;
+    font-size: var(--body-size);
     transform: scale(0);
 }
 
@@ -362,7 +368,7 @@ label[for="taskFilter"] {
     
 }
 .task-list h1 {
-    font-size: 40px;
+    font-size: var(--h1-size);
 }
 
 .notifications svg {
@@ -401,7 +407,7 @@ label[for="taskFilter"] {
     border: 1px solid var(--text-color);
     border-radius: 999px;
     font-family: "roboto condensed";
-    font-size: 16px;
+    font-size: var(--body-size);
    
 
 }
@@ -447,7 +453,7 @@ label[for="taskFilter"] {
     padding: 1rem 1.5rem;
     color: white;
     font-family: "Roboto Condensed";
-    font-size: 1.5rem;
+    font-size: var(--h3-size);
     text-align: center;
     background: var(--button-color);
     border: 2px solid var(--text-color);
