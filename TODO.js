@@ -67,19 +67,19 @@ renderChecklist();
 const checklistForm = document.querySelector("#checklistForm")
 const checklistInput = document.querySelector("#checklistInput")
 
-// Adds the submitted input as a new unchecked task, then redraws the checklist.
-checklistForm.addEventListener("submit", (event)=> {
-    event.preventDefault()
-    console.log("Item submitted:${checklistInput.value}")
+// // Adds the submitted input as a new unchecked task, then redraws the checklist.
+// checklistForm.addEventListener("submit", (event)=> {
+//     event.preventDefault()
+//     console.log("Item submitted:${checklistInput.value}")
 
-    const newItem = {
-        text: checklistInput.value,
-        completed: false
-    }
-    todos.push(newItem)
-    renderChecklist();
-    checklistInput.value=""
-});
+//     const newItem = {
+//         text: checklistInput.value,
+//         completed: false
+//     }
+//     todos.push(newItem)
+//     renderChecklist();
+//     checklistInput.value=""
+// });
 
 // const removedItem = "Clean the house"
 
@@ -115,5 +115,25 @@ removeCheckedButton.addEventListener("click", () => {
     renderChecklist();
 });
 
+//Error for checklist
+const checklistError = document.querySelector("#checklistError");
 
-// const firstGradeIsPassing = students.filter((s)=> s.grades[0]>=85)
+checklistForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    const taskText = checklistInput.value.trim();
+
+    if (!taskText) {
+        checklistError.textContent = "Please enter a task.";
+        checklistInput.setAttribute("aria-invalid", "true");
+        checklistInput.focus();
+        return;
+    }
+
+    checklistError.textContent = "";
+    checklistInput.removeAttribute("aria-invalid");
+
+    todos.push({ text: taskText, completed: false });
+    renderChecklist();
+    checklistInput.value = "";
+});
