@@ -17,6 +17,7 @@ const checklist = document.querySelector(".checklist-items");
 const taskFilter = document.querySelector("#taskFilter");
 const progressFill = document.querySelector("#progressFill");
 const progressPercentage = document.querySelector("#progressPercentage");
+const completionMessage = document.querySelector("#completionMessage");
 
 // Calculates the completed-task percentage and updates the progress bar and label.
 function updateProgress() {
@@ -51,6 +52,11 @@ function renderChecklist() {
         checkbox.addEventListener("change", () => {
             todo.completed = checkbox.checked;
             renderChecklist();
+
+            if(todos.length > 0 && todos.every ((task)=> task.completed)) {
+                // alert("Go Girl! You finished your tasks!")
+                completionMessage.hidden = false;
+            }
         });
 
         label.append(checkbox, text);
@@ -137,3 +143,4 @@ checklistForm.addEventListener("submit", (event) => {
     renderChecklist();
     checklistInput.value = "";
 });
+

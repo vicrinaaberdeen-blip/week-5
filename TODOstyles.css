@@ -237,6 +237,7 @@ body {
     padding: 0.6rem 1rem;
     background-color: var(--button-color);
     border-radius: 999px;
+    font-family: "roboto condensed";
 }
 
 .status-bar > .notification-icon {
@@ -250,6 +251,7 @@ body {
 }
 
 .checklist {
+    position: relative;
     background-color: var(--secondary-color);
     padding: 2rem;
     margin: 0 0 2rem;
@@ -431,4 +433,24 @@ label[for="taskFilter"] {
 #addItemButton svg {
     justify-content: center;
     color: var(--accent-color);
+}
+
+#completionMessage {
+   position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+
+    max-width: calc(100% - 2rem);
+    margin: 0;
+    padding: 1rem 1.5rem;
+    color: white;
+    font-family: "Roboto Condensed";
+    font-size: 1.5rem;
+    text-align: center;
+    background: var(--button-color);
+    border: 2px solid var(--text-color);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px #0003;
 }
