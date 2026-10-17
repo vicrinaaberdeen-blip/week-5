@@ -38,31 +38,36 @@ function renderChecklist() {
         ? todos.filter((todo) => !todo.completed)
         : todos;
 
-    tasksToRender.forEach((todo) => {
-        const item = document.createElement("li");
-        const label = document.createElement("label");
-        const checkbox = document.createElement("input");
-        const text = document.createElement("span");
+    if (tasksToRender.length === 0) {
+        const emptyItem = document.createElement("li");
+        emptyItem.textContent = todos.length === 0
+            ? "No tasks yet. Add one above."
+            : "No remaining tasks.";
+        checklist.append(emptyItem);
+    } else {
+        tasksToRender.forEach((todo) => {
+            const item = document.createElement("li");
+            const label = document.createElement("label");
+            const checkbox = document.createElement("input");
+            const text = document.createElement("span");
 
-        checkbox.type = "checkbox";
-        checkbox.checked = todo.completed;
+            checkbox.type = "checkbox";
+            checkbox.checked = todo.completed;
+            text.textContent = todo.text;
 
-        text.textContent = todo.text;
+            checkbox.addEventListener("change", () => {
+                todo.completed = checkbox.checked;
+                renderChecklist();
+                completionMessage.hidden = !(
+                    todos.length > 0 && todos.every((task) => task.completed)
+                );
+            });
 
-        checkbox.addEventListener("change", () => {
-            todo.completed = checkbox.checked;
-            renderChecklist();
-
-            if(todos.length > 0 && todos.every ((task)=> task.completed)) {
-                // alert("Go Girl! You finished your tasks!")
-                completionMessage.hidden = false;
-            }
+            label.append(checkbox, text);
+            item.append(label);
+            checklist.append(item);
         });
-
-        label.append(checkbox, text);
-        item.append(label);
-        checklist.append(item);
-    });
+    }
 
     updateProgress();
 }
