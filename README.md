@@ -24,3 +24,6 @@ Tasks are stored in memory, so changes reset when the page is refreshed.
 - `TODOapp.html` — page structure
 - `TODOstyles.css` — visual styles
 - `TODO.js` — checklist behavior
+
+##Figma Link
+https://www.figma.com/design/dQFWy5LvrjGW0ztYCrCCkh/Untitled?node-id=0-1&p=f&t=To6mKWXtqrkm5Uhm-0
