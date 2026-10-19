@@ -374,6 +374,8 @@ label[for="taskFilter"] {
     margin-top: 0;
     border-radius: 999px;
     padding: .5%;
+    font-size: var(--body-size);
+    font-family: "roboto condensed";
 }
 
 
@@ -474,3 +476,217 @@ label[for="taskFilter"] {
     border-radius: 12px;
     box-shadow: 0 4px 12px #0003;
 }
+
+@media (max-width: 700px) {
+    body {
+        min-width: 320px;
+    }
+
+    .sidebar {
+        position: static;
+        width: 100%;
+        height: auto;
+        padding: var(--space-4) var(--space-4) 0;
+        background-color: var(--primary-color);
+    }
+
+    .sidebar .logo {
+        padding: 0;
+        text-align: center;
+    }
+
+    .sidebar > a,
+    .sidebar-bottom {
+        display: none;
+    }
+
+    .site-container {
+        min-height: 0;
+        margin-left: 0;
+        padding: 0 var(--space-4) var(--space-4);
+    }
+
+    .topbar {
+        justify-content: flex-end;
+        gap: var(--space-2);
+        padding: var(--space-4) 0;
+    }
+
+    .profile-pic,
+    .username,
+    .search-bar {
+        display: none;
+    }
+
+    .notifications {
+        display: grid;
+        place-items: center;
+        width: 40px;
+        height: 40px;
+        flex: 0 0 40px;
+    }
+
+    .notifications svg {
+        width: 22px;
+        height: 22px;
+        margin: 0;
+    }
+
+    .notifications iconify-icon {
+        display: none;
+    }
+
+    .task-list {
+        margin: 0;
+        padding-top: var(--space-8);
+    }
+
+    .task-heading {
+        align-items: flex-start;
+        flex-direction: column-reverse;
+        gap: var(--space-4);
+    }
+
+    .task-list h1 {
+        max-width: 12ch;
+        font-size: 2.6rem;
+        line-height: 1.2;
+    }
+
+    .task-list h4 {
+        margin-top: var(--space-4);
+        font-size: var(--h3-size);
+    }
+
+    .task-list p {
+        margin-top: var(--space-2);
+        line-height: 1.45;
+    }
+
+    .status-bar {
+        gap: var(--space-1);
+        padding: 3px;
+    }
+
+    .status-label {
+        gap: var(--space-2);
+        padding: var(--space-2) var(--space-3);
+    }
+
+    .status-bar > .notification-icon {
+        width: 34px;
+        height: 34px;
+        flex-basis: 34px;
+    }
+
+    .checklist {
+        margin: var(--space-8) 0 0;
+        padding: var(--space-4);
+        border-radius: 18px;
+    }
+
+    .checklist > header {
+        align-items: center;
+        gap: var(--space-2);
+        margin-bottom: var(--space-4);
+    }
+
+    .checklist > header h2 {
+        font-size: var(--h3-size);
+    }
+
+    .progress-section {
+        gap: var(--space-2);
+    }
+
+    .progress-bar {
+        width: 72px;
+        height: 12px;
+    }
+
+    .checklist-items {
+        gap: var(--space-3);
+        margin-top: var(--space-4);
+    }
+
+    .checklist-items label {
+        display: flex;
+        align-items: flex-start;
+        gap: var(--space-2);
+        line-height: 1.4;
+    }
+
+    .checklist input[type="checkbox"] {
+        flex: 0 0 20px;
+        margin: 0;
+        margin-top: 2px;
+    }
+
+    #checklistForm {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 36px auto 104px;
+        align-items: center;
+        gap: var(--space-2);
+    }
+
+    #checklistInput {
+        width: 100%;
+        min-height: 36px;
+        padding: 0 var(--space-2);
+    }
+
+    #addItemButton {
+        width: 36px;
+        height: 36px;
+        flex-basis: 36px;
+    }
+
+    #checklistError {
+        grid-column: 1 / -1;
+        min-height: 0;
+        font-size: 0.9rem;
+    }
+
+    #taskFilter {
+        width: 104px;
+        padding: var(--space-1);
+    }
+
+    .checklist-button {
+        min-height: 42px;
+        height: auto;
+        padding: var(--space-2) var(--space-4);
+        overflow: visible;
+    }
+
+    #completionMessage {
+        width: max-content;
+        max-width: calc(100% - var(--space-4));
+        padding: var(--space-3) var(--space-4);
+        font-size: var(--h4-size);
+    }
+}
+
+@media (max-width: 380px) {
+    .task-list h1 {
+        font-size: 2.25rem;
+    }
+
+    .checklist {
+        padding: var(--space-3);
+    }
+
+    .progress-bar {
+        display: none;
+    }
+
+    #checklistForm {
+        grid-template-columns: minmax(0, 1fr) 34px auto 92px;
+        gap: var(--space-1);
+    }
+
+    #taskFilter {
+        width: 92px;
+    }
+}
+

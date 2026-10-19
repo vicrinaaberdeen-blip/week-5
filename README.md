@@ -1,6 +1,6 @@
 # HERday To-Do App
 
-HERday is a browser-based checklist app for organizing tasks and tracking progress.
+HERday is a daily to-do/checklist app for the busy, goal-oriented woman that needs a simple, visual way to organize her tasks and track progress. Helping the user become HER one task at a time.
 
 ## Features
 
